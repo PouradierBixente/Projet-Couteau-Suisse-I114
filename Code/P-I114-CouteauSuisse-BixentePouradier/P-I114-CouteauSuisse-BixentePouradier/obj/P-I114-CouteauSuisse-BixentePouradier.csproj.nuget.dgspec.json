@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pt70xqw\\source\\repos\\P-I114-CouteauSuisse-BixentePouradier\\P-I114-CouteauSuisse-BixentePouradier\\P-I114-CouteauSuisse-BixentePouradier.csproj": {}
+    "C:\\Users\\pt70xqw\\Desktop\\Projet-Couteau-Suisse-I114\\Code\\P-I114-CouteauSuisse-BixentePouradier\\P-I114-CouteauSuisse-BixentePouradier\\P-I114-CouteauSuisse-BixentePouradier.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pt70xqw\\source\\repos\\P-I114-CouteauSuisse-BixentePouradier\\P-I114-CouteauSuisse-BixentePouradier\\P-I114-CouteauSuisse-BixentePouradier.csproj": {
+    "C:\\Users\\pt70xqw\\Desktop\\Projet-Couteau-Suisse-I114\\Code\\P-I114-CouteauSuisse-BixentePouradier\\P-I114-CouteauSuisse-BixentePouradier\\P-I114-CouteauSuisse-BixentePouradier.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pt70xqw\\source\\repos\\P-I114-CouteauSuisse-BixentePouradier\\P-I114-CouteauSuisse-BixentePouradier\\P-I114-CouteauSuisse-BixentePouradier.csproj",
+        "projectUniqueName": "C:\\Users\\pt70xqw\\Desktop\\Projet-Couteau-Suisse-I114\\Code\\P-I114-CouteauSuisse-BixentePouradier\\P-I114-CouteauSuisse-BixentePouradier\\P-I114-CouteauSuisse-BixentePouradier.csproj",
         "projectName": "P-I114-CouteauSuisse-BixentePouradier",
-        "projectPath": "C:\\Users\\pt70xqw\\source\\repos\\P-I114-CouteauSuisse-BixentePouradier\\P-I114-CouteauSuisse-BixentePouradier\\P-I114-CouteauSuisse-BixentePouradier.csproj",
+        "projectPath": "C:\\Users\\pt70xqw\\Desktop\\Projet-Couteau-Suisse-I114\\Code\\P-I114-CouteauSuisse-BixentePouradier\\P-I114-CouteauSuisse-BixentePouradier\\P-I114-CouteauSuisse-BixentePouradier.csproj",
         "packagesPath": "C:\\Users\\pt70xqw\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pt70xqw\\source\\repos\\P-I114-CouteauSuisse-BixentePouradier\\P-I114-CouteauSuisse-BixentePouradier\\obj\\",
+        "outputPath": "C:\\Users\\pt70xqw\\Desktop\\Projet-Couteau-Suisse-I114\\Code\\P-I114-CouteauSuisse-BixentePouradier\\P-I114-CouteauSuisse-BixentePouradier\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

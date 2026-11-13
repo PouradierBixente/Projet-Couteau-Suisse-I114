@@ -1,0 +1,15 @@
+C:\Users\pt70xqw\Desktop\Projet-Couteau-Suisse-I114\Code\P-I114-CouteauSuisse-BixentePouradier\P-I114-CouteauSuisse-BixentePouradier\bin\Debug\net8.0\P-I114-CouteauSuisse-BixentePouradier.exe
+C:\Users\pt70xqw\Desktop\Projet-Couteau-Suisse-I114\Code\P-I114-CouteauSuisse-BixentePouradier\P-I114-CouteauSuisse-BixentePouradier\bin\Debug\net8.0\P-I114-CouteauSuisse-BixentePouradier.deps.json
+C:\Users\pt70xqw\Desktop\Projet-Couteau-Suisse-I114\Code\P-I114-CouteauSuisse-BixentePouradier\P-I114-CouteauSuisse-BixentePouradier\bin\Debug\net8.0\P-I114-CouteauSuisse-BixentePouradier.runtimeconfig.json
+C:\Users\pt70xqw\Desktop\Projet-Couteau-Suisse-I114\Code\P-I114-CouteauSuisse-BixentePouradier\P-I114-CouteauSuisse-BixentePouradier\bin\Debug\net8.0\P-I114-CouteauSuisse-BixentePouradier.dll
+C:\Users\pt70xqw\Desktop\Projet-Couteau-Suisse-I114\Code\P-I114-CouteauSuisse-BixentePouradier\P-I114-CouteauSuisse-BixentePouradier\bin\Debug\net8.0\P-I114-CouteauSuisse-BixentePouradier.pdb
+C:\Users\pt70xqw\Desktop\Projet-Couteau-Suisse-I114\Code\P-I114-CouteauSuisse-BixentePouradier\P-I114-CouteauSuisse-BixentePouradier\obj\Debug\net8.0\P-I114-CouteauSuisse-BixentePouradier.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pt70xqw\Desktop\Projet-Couteau-Suisse-I114\Code\P-I114-CouteauSuisse-BixentePouradier\P-I114-CouteauSuisse-BixentePouradier\obj\Debug\net8.0\P-I114-CouteauSuisse-BixentePouradier.AssemblyInfoInputs.cache
+C:\Users\pt70xqw\Desktop\Projet-Couteau-Suisse-I114\Code\P-I114-CouteauSuisse-BixentePouradier\P-I114-CouteauSuisse-BixentePouradier\obj\Debug\net8.0\P-I114-CouteauSuisse-BixentePouradier.AssemblyInfo.cs
+C:\Users\pt70xqw\Desktop\Projet-Couteau-Suisse-I114\Code\P-I114-CouteauSuisse-BixentePouradier\P-I114-CouteauSuisse-BixentePouradier\obj\Debug\net8.0\P-I114-CouteauSuisse-BixentePouradier.csproj.CoreCompileInputs.cache
+C:\Users\pt70xqw\Desktop\Projet-Couteau-Suisse-I114\Code\P-I114-CouteauSuisse-BixentePouradier\P-I114-CouteauSuisse-BixentePouradier\obj\Debug\net8.0\P-I114-CouteauSuisse-BixentePouradier.sourcelink.json
+C:\Users\pt70xqw\Desktop\Projet-Couteau-Suisse-I114\Code\P-I114-CouteauSuisse-BixentePouradier\P-I114-CouteauSuisse-BixentePouradier\obj\Debug\net8.0\P-I114-CouteauSuisse-BixentePouradier.dll
+C:\Users\pt70xqw\Desktop\Projet-Couteau-Suisse-I114\Code\P-I114-CouteauSuisse-BixentePouradier\P-I114-CouteauSuisse-BixentePouradier\obj\Debug\net8.0\refint\P-I114-CouteauSuisse-BixentePouradier.dll
+C:\Users\pt70xqw\Desktop\Projet-Couteau-Suisse-I114\Code\P-I114-CouteauSuisse-BixentePouradier\P-I114-CouteauSuisse-BixentePouradier\obj\Debug\net8.0\P-I114-CouteauSuisse-BixentePouradier.pdb
+C:\Users\pt70xqw\Desktop\Projet-Couteau-Suisse-I114\Code\P-I114-CouteauSuisse-BixentePouradier\P-I114-CouteauSuisse-BixentePouradier\obj\Debug\net8.0\P-I114-CouteauSuisse-BixentePouradier.genruntimeconfig.cache
+C:\Users\pt70xqw\Desktop\Projet-Couteau-Suisse-I114\Code\P-I114-CouteauSuisse-BixentePouradier\P-I114-CouteauSuisse-BixentePouradier\obj\Debug\net8.0\ref\P-I114-CouteauSuisse-BixentePouradier.dll
