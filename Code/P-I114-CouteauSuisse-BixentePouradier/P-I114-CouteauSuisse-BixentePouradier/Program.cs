@@ -3,6 +3,9 @@
 ///Date     : 13.11.2026
 ///1. Le code morse est un encodage.
 ///2. Pour l'adapté au support de transmision de la donné.
+///Pseudo code  : différence code avec pseudo code : 
+///Le dictionnaire du texte au morse a été mis dans le code principale pour permettre de vérifier que l'entrée de l'utilisateur est valide.
+///Rajouter un compteur dans la partie du morse à alphabet 
 
 Dictionary<char, string> texte = new Dictionary<char, string>()
     {
