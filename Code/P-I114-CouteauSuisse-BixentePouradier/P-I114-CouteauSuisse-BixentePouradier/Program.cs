@@ -5,7 +5,8 @@
 ///2. Pour l'adapté au support de transmision de la donné.
 ///Pseudo code  : différence code avec pseudo code : 
 ///Le dictionnaire du texte au morse a été mis dans le code principale pour permettre de vérifier que l'entrée de l'utilisateur est valide.
-///Rajouter un compteur dans la partie du morse à alphabet 
+///Rajouter un compteur dans la partie du morse à alphabet
+///Je ne retourne plus le code finale car c'est plus simple
 
 Dictionary<char, string> texte = new Dictionary<char, string>()
     {
@@ -303,4 +304,70 @@ void ConvertirMorseTexte(string UserInput)
     }
     Console.WriteLine(Translation);
     Console.WriteLine("Nombre de caractère non reconnu : " + NoCharactere);
+}
+
+
+void Convertiondebase(string initial, string finale, string codeInitial)
+{
+    int coderestant = 0;
+    string codetraduit = "";
+    int value = 0;
+    Dictionary<char, int> hexa = new Dictionary<char, int>()
+    {
+        { '0', 0},
+        { '1', 1},
+        { '2', 2},
+        { '3', 3},
+        { '4', 4},
+        { '5', 5},
+        { '6', 6},
+        { '7', 7},
+        { '8', 8},
+        { '9', 9},
+        { 'A', 10},
+        { 'B', 11},
+        { 'C', 12},
+        { 'D', 13},
+        { 'E', 14},
+        { 'F', 15},
+        { 'a', 10},
+        { 'b', 11},
+        { 'c', 12},
+        { 'd', 13},
+        { 'e', 14},
+        { 'f', 15},
+    };
+
+    if (initial != "hexa")
+        coderestant = codeInitial;
+
+    if(initial == "Decimal")
+    {
+        if(finale == "Binaire")
+        {
+            do
+            {
+                codetraduit = (coderestant % 2) + codetraduit;
+                coderestant = (coderestant - (coderestant % 2)) / 2;
+            } while (coderestant >= 0);
+        }
+
+        if (finale == "Octal")
+        {
+            do
+            {
+                codetraduit = (coderestant % 8) + codetraduit;
+                coderestant = (coderestant - (coderestant % 8)) / 8;
+            } while (coderestant >= 0);
+        }
+
+        if (finale == "Hexadecimal")
+        {
+            for (int i = 0; i <= codeInitial.Length; i++)
+            {
+                if(hexa.TryGetValue(codeInitial[i], out value))
+                    codetraduit = codetraduit + value * Math.Pow(16,i);
+            }
+        }
+    }
 }
