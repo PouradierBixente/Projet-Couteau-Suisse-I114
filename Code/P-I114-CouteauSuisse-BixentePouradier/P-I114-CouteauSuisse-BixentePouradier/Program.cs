@@ -185,6 +185,9 @@ do
             ConvertirMorseTexte(UserInput);
 
             break;
+
+        case 0:
+            continue;
     }
 
     Console.Write("Voulez-vous recommencer ?[Y/N] :");
@@ -294,8 +297,10 @@ void ConvertirMorseTexte(string UserInput)
         if (value == null && space)
         {
             NoCharactere++;
+            FragUserInput = "";
+            space = false;
         }
     }
     Console.WriteLine(Translation);
-    Console.WriteLine("Nombre de caractère non reconnu : " + NoCharactere + ".");
+    Console.WriteLine("Nombre de caractère non reconnu : " + NoCharactere);
 }
