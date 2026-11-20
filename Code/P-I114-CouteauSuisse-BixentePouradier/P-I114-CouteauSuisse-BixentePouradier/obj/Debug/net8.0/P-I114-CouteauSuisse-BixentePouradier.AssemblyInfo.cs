@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("P-I114-CouteauSuisse-BixentePouradier")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7128e6cabc0c15afcf276c15b0acff0f0f3c5a58")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6d6db57abfd9b4d66d85a5365ac6871de3d185e1")]
 [assembly: System.Reflection.AssemblyProductAttribute("P-I114-CouteauSuisse-BixentePouradier")]
 [assembly: System.Reflection.AssemblyTitleAttribute("P-I114-CouteauSuisse-BixentePouradier")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
