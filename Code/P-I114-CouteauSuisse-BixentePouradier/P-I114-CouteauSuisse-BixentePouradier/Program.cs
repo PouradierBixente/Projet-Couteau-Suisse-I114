@@ -395,6 +395,7 @@ void Convertiondebase(string initial, string finale, string codeInitial)
     int coderestant = 0;
     string codetraduit = "";
     int value = 0;
+    double codefinal = 0;
     Dictionary<char, int> hexa = new Dictionary<char, int>()
     {
         { '0', 0},
@@ -464,9 +465,9 @@ void Convertiondebase(string initial, string finale, string codeInitial)
         {
             for (int i = 0; i <= codeInitial.Length - 1 ; i++)
             {
-                codetraduit = codetraduit + ((codeInitial[i] - 48) * Math.Pow(2, i));
+                codefinal = codefinal + (codeInitial[i] - 48) * Math.Pow(2, i);
             }
-            Console.WriteLine(codetraduit);
+            Console.WriteLine(codefinal);
         }
 
         if (finale == "Octal")
@@ -504,7 +505,7 @@ void Convertiondebase(string initial, string finale, string codeInitial)
             {
                 for (int i = 0; i <= codeInitial.Length - 1; i++)
                 {
-                    codetraduit = codetraduit + (codeInitial[i] * Math.Pow(8, i));
+                    codetraduit = codetraduit + (int.Parse(codeInitial[i].ToString()) * Math.Pow(8, i));
                 }
                 Convertiondebase("Decimal", "Binaire", codetraduit);
             }
