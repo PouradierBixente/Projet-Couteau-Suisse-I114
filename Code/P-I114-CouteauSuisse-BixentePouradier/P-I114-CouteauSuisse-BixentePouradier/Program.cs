@@ -1,4 +1,7 @@
-﻿///ETML
+﻿
+using System;
+
+///ETML
 ///Auteur   : Bixente Pouradier
 ///Date     : 13.11.2026
 ///1. Le code morse est un encodage.
@@ -77,6 +80,7 @@ Dictionary<char, string> texte = new Dictionary<char, string>()
 
 string UserChoice = " ";
 int UserChoiceNumber = 0;
+int UserChoiceNumber2 = 0;
 string UserInput = " ";
 bool Reset = false;
 string value = " ";
@@ -200,21 +204,21 @@ do
                 do
                 {
                     UserChoice = "";
-                    UserChoiceNumber = 0;
+                    UserChoiceNumber2 = 0;
                     Reset = false;
 
                     Console.Write("Votre choix : ");
 
                     UserChoice = Console.ReadLine();
 
-                    if (!(int.TryParse(UserChoice, out UserChoiceNumber)))
+                    if (!(int.TryParse(UserChoice, out UserChoiceNumber2)))
                     {
                         Console.WriteLine("Seul les chiffres sont autorisé.");
                         Reset = true;
                     }
                     else
                     {
-                        if (UserChoiceNumber == 1 || UserChoiceNumber == 2 || UserChoiceNumber == 3 || UserChoiceNumber == 4 || UserChoiceNumber == 5 || UserChoiceNumber == 6 || UserChoiceNumber == 7 || UserChoiceNumber == 8)
+                        if (UserChoiceNumber2 == 1 || UserChoiceNumber2 == 2 || UserChoiceNumber2 == 3 || UserChoiceNumber2 == 4 || UserChoiceNumber2 == 5 || UserChoiceNumber2 == 6 || UserChoiceNumber2 == 7 || UserChoiceNumber2 == 8)
                         {
                             Reset = false;
                         }
@@ -225,9 +229,46 @@ do
                         }
                     }
                 } while (Reset);
+                if(UserChoiceNumber2 == 1) {
+                    UserInput = Console.ReadLine();
+                    Convertiondebase("Decimal", "Binaire", UserInput);
+                }
+                if (UserChoiceNumber2 == 2)
+                {
+                    UserInput = Console.ReadLine();
+                    Convertiondebase("Binaire", "Decimal", UserInput);
+                }
+                if (UserChoiceNumber2 == 3)
+                {
+                    UserInput = Console.ReadLine();
+                    Convertiondebase("Decimal", "Octal", UserInput);
+                }
+            if (UserChoiceNumber2 == 4)
+            {
                 UserInput = Console.ReadLine();
-                Convertiondebase("Decimal", "Binaire", UserInput);
-                break;
+                Convertiondebase("Octal", "Decimal", UserInput);
+            }
+            if (UserChoiceNumber2 == 5)
+            {
+                UserInput = Console.ReadLine();
+                Convertiondebase("Binaire", "Octal", UserInput);
+            }
+            if (UserChoiceNumber2 == 6)
+            {
+                UserInput = Console.ReadLine();
+                Convertiondebase("Octal", "Binaire", UserInput);
+            }
+            if (UserChoiceNumber2 == 7)
+            {
+                UserInput = Console.ReadLine();
+                Convertiondebase("Decimal", "Hexadecimal", UserInput);
+            }
+            if (UserChoiceNumber2 == 8)
+            {
+                UserInput = Console.ReadLine();
+                Convertiondebase("Hexadecimal", "Decimal", UserInput);
+            }
+            break;
 
         case 0:
             continue;
@@ -401,13 +442,14 @@ void Convertiondebase(string initial, string finale, string codeInitial)
             {
                 codetraduit = (coderestant % 8) + codetraduit;
                 coderestant = (coderestant - (coderestant % 8)) / 8;
-            } while (coderestant >= 0);
+            } while (coderestant >= 8);
+            codetraduit = coderestant + codetraduit;
             Console.WriteLine(codetraduit);
         }
 
         if (finale == "Hexadecimal")
         {
-            for (int i = 0; i <= codeInitial.Length; i++)
+            for (int i = 0; i <= codeInitial.Length - 1; i++)
             {
                 if(hexa.TryGetValue(codeInitial[i], out value))
                     codetraduit = codetraduit + value * Math.Pow(16,i);
@@ -420,16 +462,16 @@ void Convertiondebase(string initial, string finale, string codeInitial)
     {
         if (finale == "Decimal")
         {
-            for (int i = 0; i <= codeInitial.Length; i++)
+            for (int i = 0; i <= codeInitial.Length - 1 ; i++)
             {
-                codetraduit = codetraduit + (codeInitial[i] * Math.Pow(2, i));
+                codetraduit = codetraduit + ((codeInitial[i] - 48) * Math.Pow(2, i));
             }
             Console.WriteLine(codetraduit);
         }
 
         if (finale == "Octal")
         {
-            for (int i = 0; i <= codeInitial.Length; i++)
+            for (int i = 0; i <= codeInitial.Length - 1; i++)
             {
                 codetraduit = codetraduit + (codeInitial[i] * Math.Pow(2, i));
             }
@@ -438,7 +480,7 @@ void Convertiondebase(string initial, string finale, string codeInitial)
 
         if (finale == "Hexadecimal")
         {
-            for (int i = 0; i <= codeInitial.Length; i++)
+            for (int i = 0; i <= codeInitial.Length - 1; i++)
             {
                 if (hexa.TryGetValue(codeInitial[i], out value))
                     codetraduit = codetraduit + value * Math.Pow(2, i);
@@ -451,7 +493,7 @@ void Convertiondebase(string initial, string finale, string codeInitial)
         {
             if (finale == "Decimal")
             {
-                for (int i = 0; i <= codeInitial.Length; i++)
+                for (int i = 0; i <= codeInitial.Length - 1; i++)
                 {
                     codetraduit = codetraduit + (codeInitial[i] * Math.Pow(8, i));
                 }
@@ -460,7 +502,7 @@ void Convertiondebase(string initial, string finale, string codeInitial)
 
             if (finale == "Binaire")
             {
-                for (int i = 0; i <= codeInitial.Length; i++)
+                for (int i = 0; i <= codeInitial.Length - 1; i++)
                 {
                     codetraduit = codetraduit + (codeInitial[i] * Math.Pow(8, i));
                 }
@@ -469,7 +511,7 @@ void Convertiondebase(string initial, string finale, string codeInitial)
 
             if (finale == "Hexadecimal")
             {
-                for (int i = 0; i <= codeInitial.Length; i++)
+                for (int i = 0; i <= codeInitial.Length - 1; i++)
                 {
                     if (hexa.TryGetValue(codeInitial[i], out value))
                         codetraduit = codetraduit + value * Math.Pow(8, i);
@@ -482,7 +524,7 @@ void Convertiondebase(string initial, string finale, string codeInitial)
     {
         if (finale == "Decimal")
         {
-            for (int i = 0; i <= codeInitial.Length; i++)
+            for (int i = 0; i <= codeInitial.Length - 1; i++)
             {
                 if (hexa.TryGetValue(codeInitial[i], out value))
                     codetraduit = codetraduit + value * Math.Pow(16, i);
@@ -492,7 +534,7 @@ void Convertiondebase(string initial, string finale, string codeInitial)
 
         if (finale == "Binaire")
         {
-            for (int i = 0; i <= codeInitial.Length; i++)
+            for (int i = 0; i <= codeInitial.Length - 1; i++)
             {
                 if (hexa.TryGetValue(codeInitial[i], out value))
                     codetraduit = codetraduit + value * Math.Pow(16, i);
@@ -502,7 +544,7 @@ void Convertiondebase(string initial, string finale, string codeInitial)
 
         if (finale == "Octal")
         {
-            for (int i = 0; i <= codeInitial.Length; i++)
+            for (int i = 0; i <= codeInitial.Length - 1; i++)
             {
                 if (hexa.TryGetValue(codeInitial[i], out value))
                     codetraduit = codetraduit + value * Math.Pow(16, i);
