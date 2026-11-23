@@ -505,9 +505,9 @@ void Convertiondebase(string initial, string finale, string codeInitial)
             {
                 for (int i = 0; i <= codeInitial.Length - 1; i++)
                 {
-                    codetraduit = codetraduit + (int.Parse(codeInitial[i].ToString()) * Math.Pow(8, i));
+                    codefinal = codefinal + (int.Parse(codeInitial[i].ToString()) * Math.Pow(8, codeInitial.Length - i - 1));
                 }
-                Convertiondebase("Decimal", "Binaire", codetraduit);
+                Convertiondebase("Decimal", "Binaire", codefinal.ToString());
             }
 
             if (finale == "Hexadecimal")
