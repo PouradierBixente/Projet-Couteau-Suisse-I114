@@ -77,13 +77,59 @@ Dictionary<char, string> texte = new Dictionary<char, string>()
         {'9', "----."},
         {' ', "/"},
     };
+Dictionary<char, int> hexa = new Dictionary<char, int>()
+    {
+        { '0', 0},
+        { '1', 1},
+        { '2', 2},
+        { '3', 3},
+        { '4', 4},
+        { '5', 5},
+        { '6', 6},
+        { '7', 7},
+        { '8', 8},
+        { '9', 9},
+        { 'A', 10},
+        { 'B', 11},
+        { 'C', 12},
+        { 'D', 13},
+        { 'E', 14},
+        { 'F', 15},
+        { 'a', 10},
+        { 'b', 11},
+        { 'c', 12},
+        { 'd', 13},
+        { 'e', 14},
+        { 'f', 15},
+    };
+
+Dictionary<int, char> hexadec = new Dictionary<int, char>()
+    {
+        { 0, '0'},
+        { 1, '1'},
+        { 2, '2'},
+        { 3, '3'},
+        { 4, '4'},
+        { 5, '5'},
+        { 6, '6'},
+        { 7, '7'},
+        { 8, '8'},
+        { 9, '9'},
+        { 10, 'A'},
+        { 11, 'B'},
+        { 12, 'C'},
+        { 13, 'D'},
+        { 14, 'E'},
+        { 15, 'F'},
+    };
 
 string UserChoice = " ";
 int UserChoiceNumber = 0;
 int UserChoiceNumber2 = 0;
 string UserInput = " ";
 bool Reset = false;
-string value = " ";
+string valuestring = " ";
+int valueint = 0;
 
 do
 {
@@ -91,7 +137,7 @@ do
     UserChoiceNumber = 0;
     UserInput = " ";
     Reset = false;
-    value = " ";
+    valuestring = " ";
 
     Console.Clear();
 
@@ -137,14 +183,14 @@ do
             {
                 UserInput = "";
                 Reset = false;
-                value = "";
+                valuestring = "";
 
                 Console.WriteLine("\n=== Texte -> Morse ===" +
                     "\nTexte (lettres A - Z, chiffres) :");
                 UserInput = Console.ReadLine();
                 for (int i = 0; i < UserInput.Length; i++)
                 {
-                    if (!(texte.TryGetValue(UserInput[i], out value)))
+                    if (!(texte.TryGetValue(UserInput[i], out valuestring)))
                     {
                         Console.WriteLine("Seul les lettres et chiffres sont autorisés.");
                         Reset = true;
@@ -166,7 +212,7 @@ do
             {
                 UserInput = "";
                 Reset = false;
-                value = "";
+                valuestring = "";
 
                 Console.WriteLine("\n=== Morse -> Texte ===" +
                     "\nMorse (. - espace /) :");
@@ -192,80 +238,224 @@ do
             break;
 
         case 3:
-                Console.WriteLine("\n=== Conversion de bases ===" +
-                    "\n1. Decimal -> Binaire" +
-                    "\n2. Binaire -> Decimal" +
-                    "\n3. Decimal -> Octal" +
-                    "\n4. Octal -> Decimal" +
-                    "\n5. Binaire -> Octal" +
-                    "\n6. Octal -> Binaire" +
-                    "\n7. Decimal -> Hexadecimal" +
-                    "\n8. Hexadecimal -> Decimal");
+            Console.WriteLine("\n=== Conversion de bases ===" +
+                "\n1. Decimal -> Binaire" +
+                "\n2. Binaire -> Decimal" +
+                "\n3. Decimal -> Octal" +
+                "\n4. Octal -> Decimal" +
+                "\n5. Binaire -> Octal" +
+                "\n6. Octal -> Binaire" +
+                "\n7. Decimal -> Hexadecimal" +
+                "\n8. Hexadecimal -> Decimal");
+            do
+            {
+                UserChoice = "";
+                UserChoiceNumber2 = 0;
+                Reset = false;
+
+                Console.Write("Votre choix : ");
+
+                UserChoice = Console.ReadLine();
+
+                if (!(int.TryParse(UserChoice, out UserChoiceNumber2)))
+                {
+                    Console.WriteLine("Seul les chiffres sont autorisé.");
+                    Reset = true;
+                }
+                else
+                {
+                    if (UserChoiceNumber2 == 1 || UserChoiceNumber2 == 2 || UserChoiceNumber2 == 3 || UserChoiceNumber2 == 4 || UserChoiceNumber2 == 5 || UserChoiceNumber2 == 6 || UserChoiceNumber2 == 7 || UserChoiceNumber2 == 8)
+                    {
+                        Reset = false;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Seul les chiffres entre 1 et 8 sont autorisé.");
+                        Reset = true;
+                    }
+                }
+            } while (Reset);
+            if (UserChoiceNumber2 == 1)
+            {
                 do
                 {
-                    UserChoice = "";
-                    UserChoiceNumber2 = 0;
                     Reset = false;
-
-                    Console.Write("Votre choix : ");
-
-                    UserChoice = Console.ReadLine();
-
-                    if (!(int.TryParse(UserChoice, out UserChoiceNumber2)))
+                    Console.Write("Nombre décimal : ");
+                    UserInput = Console.ReadLine();
+                    if (!(int.TryParse(UserInput, out UserChoiceNumber)))
+                    {
+                        Console.WriteLine("Seul les chiffres sont autorisé.");
+                        Reset = true;
+                    }
+                } while (Reset);
+                Console.Write("Résultat : ");
+                Convertiondebase("Decimal", "Binaire", UserInput);
+            }
+            if (UserChoiceNumber2 == 2)
+            {
+                do
+                {
+                    Reset = false;
+                    Console.Write("Nombre binaire : ");
+                    UserInput = Console.ReadLine();
+                    if (!(int.TryParse(UserInput, out UserChoiceNumber)))
                     {
                         Console.WriteLine("Seul les chiffres sont autorisé.");
                         Reset = true;
                     }
                     else
                     {
-                        if (UserChoiceNumber2 == 1 || UserChoiceNumber2 == 2 || UserChoiceNumber2 == 3 || UserChoiceNumber2 == 4 || UserChoiceNumber2 == 5 || UserChoiceNumber2 == 6 || UserChoiceNumber2 == 7 || UserChoiceNumber2 == 8)
+                        if (UserChoiceNumber == 1 || UserChoiceNumber == 0 )
                         {
                             Reset = false;
                         }
                         else
                         {
-                            Console.WriteLine("Seul les chiffres entre 1 et 8 sont autorisé.");
+                            Console.WriteLine("Seul les chiffres 1 et 0 sont autorisé.");
                             Reset = true;
                         }
                     }
                 } while (Reset);
-                if(UserChoiceNumber2 == 1) {
-                    UserInput = Console.ReadLine();
-                    Convertiondebase("Decimal", "Binaire", UserInput);
-                }
-                if (UserChoiceNumber2 == 2)
+                Console.Write("Résultat : ");
+                Convertiondebase("Binaire", "Decimal", UserInput);
+            }
+            if (UserChoiceNumber2 == 3)
+            {
+                do
                 {
+                    Reset = false;
+                    Console.Write("Nombre décimal : ");
                     UserInput = Console.ReadLine();
-                    Convertiondebase("Binaire", "Decimal", UserInput);
-                }
-                if (UserChoiceNumber2 == 3)
-                {
-                    UserInput = Console.ReadLine();
-                    Convertiondebase("Decimal", "Octal", UserInput);
-                }
+                    if (!(int.TryParse(UserInput, out UserChoiceNumber)))
+                    {
+                        Console.WriteLine("Seul les chiffres sont autorisé.");
+                        Reset = true;
+                    }
+                } while (Reset);
+                Console.Write("Résultat : ");
+                Convertiondebase("Decimal", "Octal", UserInput);
+            }
             if (UserChoiceNumber2 == 4)
             {
-                UserInput = Console.ReadLine();
+                do
+                {
+                    Reset = false;
+                    Console.Write("Nombre octal : ");
+                    UserInput = Console.ReadLine();
+                    if (!(int.TryParse(UserInput, out UserChoiceNumber)))
+                    {
+                        Console.WriteLine("Seul les chiffres sont autorisé.");
+                        Reset = true;
+                    }
+                    else
+                    {
+                        if (UserChoiceNumber2 == 1 || UserChoiceNumber2 == 2 || UserChoiceNumber2 == 3 || UserChoiceNumber2 == 4 || UserChoiceNumber2 == 5 || UserChoiceNumber2 == 6 || UserChoiceNumber2 == 7 || UserChoiceNumber2 == 0)
+                        {
+                            Reset = false;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Seul les chiffres entre 0 et 7 sont autorisé.");
+                            Reset = true;
+                        }
+                    }
+                } while (Reset);
+                Console.Write("Résultat : ");
                 Convertiondebase("Octal", "Decimal", UserInput);
             }
             if (UserChoiceNumber2 == 5)
             {
+                do
+                {
+                    Reset = false;
+                    Console.Write("Nombre binaire : ");
                 UserInput = Console.ReadLine();
+                if (!(int.TryParse(UserInput, out UserChoiceNumber)))
+                {
+                    Console.WriteLine("Seul les chiffres sont autorisé.");
+                    Reset = true;
+                }
+                else
+                {
+                    if (UserChoiceNumber == 1 || UserChoiceNumber == 0)
+                    {
+                        Reset = false;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Seul les chiffres 1 et 0 sont autorisé.");
+                        Reset = true;
+                    }
+                }
+            } while (Reset) ;
+            Console.Write("Résultat : ");
                 Convertiondebase("Binaire", "Octal", UserInput);
             }
             if (UserChoiceNumber2 == 6)
             {
-                UserInput = Console.ReadLine();
+                do
+                {
+                    Reset = false;
+                    Console.Write("Nombre octal : ");
+                    UserInput = Console.ReadLine();
+                    if (!(int.TryParse(UserInput, out UserChoiceNumber)))
+                    {
+                        Console.WriteLine("Seul les chiffres sont autorisé.");
+                        Reset = true;
+                    }
+                    else
+                    {
+                        if (UserChoiceNumber2 == 1 || UserChoiceNumber2 == 2 || UserChoiceNumber2 == 3 || UserChoiceNumber2 == 4 || UserChoiceNumber2 == 5 || UserChoiceNumber2 == 6 || UserChoiceNumber2 == 7 || UserChoiceNumber2 == 0)
+                        {
+                            Reset = false;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Seul les chiffres entre 0 et 7 sont autorisé.");
+                            Reset = true;
+                        }
+                    }
+                } while (Reset);
+                Console.Write("Résultat : ");
                 Convertiondebase("Octal", "Binaire", UserInput);
             }
             if (UserChoiceNumber2 == 7)
             {
-                UserInput = Console.ReadLine();
+                do
+                {
+                    Reset = false;
+                    Console.Write("Nombre décimal : ");
+                    UserInput = Console.ReadLine();
+                    if (!(int.TryParse(UserInput, out UserChoiceNumber)))
+                    {
+                        Console.WriteLine("Seul les chiffres sont autorisé.");
+                        Reset = true;
+                    }
+                } while (Reset);
+                Console.Write("Résultat : ");
                 Convertiondebase("Decimal", "Hexadecimal", UserInput);
             }
             if (UserChoiceNumber2 == 8)
             {
-                UserInput = Console.ReadLine();
+                do
+                {
+                    Reset = false;
+                    Console.Write("Nombre hexadecimal : ");
+                    UserInput = Console.ReadLine();
+                    for (int i = 0; i <= UserInput.Length - 1; i++)
+                    {
+                        if (hexa.TryGetValue(UserInput[i], out valueint))
+                        {
+                            Reset = false;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Seul les chiffres entre 0 et 9 et les lettres entre a et f sont autorisé.");
+                            Reset = true;
+                        }
+                    }
+                } while (Reset);
+                Console.Write("Résultat : ");
                 Convertiondebase("Hexadecimal", "Decimal", UserInput);
             }
             break;
@@ -302,9 +492,9 @@ void ConvertirTexteMorse(string UserInput)
 
     for (int i = 0; i < UserInput.Length; i++)
     {
-        if (texte.TryGetValue(UserInput[i], out value))
+        if (texte.TryGetValue(UserInput[i], out valuestring))
         {
-            Translation += value + " ";
+            Translation += valuestring + " ";
         }
     }
     Console.WriteLine(Translation);
@@ -359,7 +549,7 @@ void ConvertirMorseTexte(string UserInput)
 
     for (int i = 0; i < UserInput.Length; i++)
     {
-        value = "";
+        valuestring = "";
         if (!(UserInput[i].Equals(' ')))
         {
             FragUserInput += UserInput[i];
@@ -371,14 +561,14 @@ void ConvertirMorseTexte(string UserInput)
         }
 
 
-        if (morse.TryGetValue(FragUserInput, out value) && space)
+        if (morse.TryGetValue(FragUserInput, out valuestring) && space)
         {
-            Translation += value;
+            Translation += valuestring;
             FragUserInput = "";
             space = false;
         }
 
-        if (value == null && space)
+        if (valuestring == null && space)
         {
             NoCharactere++;
             FragUserInput = "";
@@ -394,40 +584,17 @@ void Convertiondebase(string initial, string finale, string codeInitial)
 {
     int coderestant = 0;
     string codetraduit = "";
-    int value = 0;
+    int valueint = 0;
+    char valuechar = ' ';
     double codefinal = 0;
-    Dictionary<char, int> hexa = new Dictionary<char, int>()
-    {
-        { '0', 0},
-        { '1', 1},
-        { '2', 2},
-        { '3', 3},
-        { '4', 4},
-        { '5', 5},
-        { '6', 6},
-        { '7', 7},
-        { '8', 8},
-        { '9', 9},
-        { 'A', 10},
-        { 'B', 11},
-        { 'C', 12},
-        { 'D', 13},
-        { 'E', 14},
-        { 'F', 15},
-        { 'a', 10},
-        { 'b', 11},
-        { 'c', 12},
-        { 'd', 13},
-        { 'e', 14},
-        { 'f', 15},
-    };
 
     if (initial != "hexa")
         int.TryParse(codeInitial, out coderestant);
 
     if (initial == "Decimal")
     {
-        if(finale == "Binaire")
+        //
+        if (finale == "Binaire")
         {
             do
             {
@@ -437,6 +604,7 @@ void Convertiondebase(string initial, string finale, string codeInitial)
             Console.WriteLine(codetraduit);
         }
 
+        //
         if (finale == "Octal")
         {
             do
@@ -448,109 +616,128 @@ void Convertiondebase(string initial, string finale, string codeInitial)
             Console.WriteLine(codetraduit);
         }
 
+        //
         if (finale == "Hexadecimal")
         {
-            for (int i = 0; i <= codeInitial.Length - 1; i++)
+            do
             {
-                if(hexa.TryGetValue(codeInitial[i], out value))
-                    codetraduit = codetraduit + value * Math.Pow(16,i);
-            }
+                do
+                {
+                    coderestant = int.Parse(codeInitial.ToString()) % 16;
+                    if (coderestant == 0)
+                    {
+                        coderestant = int.Parse(codeInitial.ToString()) / 16;
+                        codeInitial = (int.Parse(codeInitial.ToString()) - coderestant * 16).ToString();
+                    }
+                    else
+                    {
+                        codeInitial = (int.Parse(codeInitial.ToString()) - coderestant).ToString();
+                    }
+                } while (coderestant > 15);
+                if (hexadec.TryGetValue(coderestant, out valuechar))
+                    codetraduit = valuechar + codetraduit;
+            } while (int.Parse(codeInitial.ToString()) > 0);
             Console.WriteLine(codetraduit);
         }
     }
 
     if (initial == "Binaire")
     {
+        //
         if (finale == "Decimal")
         {
-            for (int i = 0; i <= codeInitial.Length - 1 ; i++)
+            for (int i = 0; i <= codeInitial.Length - 1; i++)
             {
-                codefinal = codefinal + (codeInitial[i] - 48) * Math.Pow(2, i);
+                codefinal = codefinal + (int.Parse(codeInitial[i].ToString()) * Math.Pow(2, codeInitial.Length - i - 1));
             }
             Console.WriteLine(codefinal);
         }
 
+        //
         if (finale == "Octal")
         {
             for (int i = 0; i <= codeInitial.Length - 1; i++)
             {
-                codetraduit = codetraduit + (codeInitial[i] * Math.Pow(2, i));
+                codefinal = codefinal + (int.Parse(codeInitial[i].ToString()) * Math.Pow(2, codeInitial.Length - i - 1));
             }
-            Convertiondebase("Decimal", "Octal", codetraduit);
+            Convertiondebase("Decimal", "Octal", codefinal.ToString());
         }
 
         if (finale == "Hexadecimal")
         {
             for (int i = 0; i <= codeInitial.Length - 1; i++)
             {
-                if (hexa.TryGetValue(codeInitial[i], out value))
-                    codetraduit = codetraduit + value * Math.Pow(2, i);
+                codefinal = codefinal + (int.Parse(codeInitial[i].ToString()) * Math.Pow(2, codeInitial.Length - i - 1));
             }
-            Convertiondebase("Decimal", "Hexadecimal", codetraduit);
+            Convertiondebase("Decimal", "Octal", codefinal.ToString());
         }
     }
 
-        if (initial == "Octal")
-        {
-            if (finale == "Decimal")
-            {
-                for (int i = 0; i <= codeInitial.Length - 1; i++)
-                {
-                    codetraduit = codetraduit + (codeInitial[i] * Math.Pow(8, i));
-                }
-            Console.WriteLine(codetraduit);
-        }
-
-            if (finale == "Binaire")
-            {
-                for (int i = 0; i <= codeInitial.Length - 1; i++)
-                {
-                    codefinal = codefinal + (int.Parse(codeInitial[i].ToString()) * Math.Pow(8, codeInitial.Length - i - 1));
-                }
-                Convertiondebase("Decimal", "Binaire", codefinal.ToString());
-            }
-
-            if (finale == "Hexadecimal")
-            {
-                for (int i = 0; i <= codeInitial.Length - 1; i++)
-                {
-                    if (hexa.TryGetValue(codeInitial[i], out value))
-                        codetraduit = codetraduit + value * Math.Pow(8, i);
-                }
-                Convertiondebase("Decimal", "Hexadecimal", codetraduit);
-            }
-        }
-
-    if (initial == "Hexadecimal")
+    if (initial == "Octal")
     {
+        //
         if (finale == "Decimal")
         {
             for (int i = 0; i <= codeInitial.Length - 1; i++)
             {
-                if (hexa.TryGetValue(codeInitial[i], out value))
-                    codetraduit = codetraduit + value * Math.Pow(16, i);
+                codefinal = codefinal + (int.Parse(codeInitial[i].ToString()) * Math.Pow(8, codeInitial.Length - i - 1));
             }
-            Console.WriteLine(codetraduit);
+            Console.WriteLine(codefinal);
+        }
+
+        //
+        if (finale == "Binaire")
+        {
+            for (int i = 0; i <= codeInitial.Length - 1; i++)
+            {
+                codefinal = codefinal + (int.Parse(codeInitial[i].ToString()) * Math.Pow(8, codeInitial.Length - i - 1));
+            }
+            Convertiondebase("Decimal", "Binaire", codefinal.ToString());
+        }
+
+        if (finale == "Hexadecimal")
+        {
+            for (int i = 0; i <= codeInitial.Length - 1; i++)
+            {
+                codefinal = codefinal + (int.Parse(codeInitial[i].ToString()) * Math.Pow(8, codeInitial.Length - i - 1));
+            }
+            Convertiondebase("Decimal", "Binaire", codefinal.ToString());
+        }
+    }
+
+    if (initial == "Hexadecimal")
+    {
+        //
+        if (finale == "Decimal")
+        {
+            for (int i = 0; i <= codeInitial.Length - 1; i++)
+            {
+                if (hexa.TryGetValue(codeInitial[i], out valueint))
+                    codefinal = codefinal + valueint * Math.Pow(16, codeInitial.Length - i - 1);
+            }
+            Console.WriteLine(codefinal);
         }
 
         if (finale == "Binaire")
         {
             for (int i = 0; i <= codeInitial.Length - 1; i++)
             {
-                if (hexa.TryGetValue(codeInitial[i], out value))
-                    codetraduit = codetraduit + value * Math.Pow(16, i);
+                if (hexa.TryGetValue(codeInitial[i], out valueint))
+                    codefinal = codefinal + valueint * Math.Pow(16, codeInitial.Length - i - 1);
             }
-            Convertiondebase("Decimal", "Binaire", codetraduit);
+            Console.WriteLine(codefinal);
+            Convertiondebase("Decimal", "Binaire", codefinal.ToString());
         }
 
         if (finale == "Octal")
         {
             for (int i = 0; i <= codeInitial.Length - 1; i++)
             {
-                if (hexa.TryGetValue(codeInitial[i], out value))
-                    codetraduit = codetraduit + value * Math.Pow(16, i);
+                if (hexa.TryGetValue(codeInitial[i], out valueint))
+                    codefinal = codefinal + valueint * Math.Pow(16, codeInitial.Length - i - 1);
             }
-            Convertiondebase("Decimal", "Octal", codetraduit);
+            Console.WriteLine(codefinal);
+            Convertiondebase("Decimal", "Octal", codefinal.ToString());
         }
     }
 }
